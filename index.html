@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Code Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🐍 Python Code Editor</h1>
+            <div class="header-controls">
+                <button id="runBtn" class="btn btn-primary">
+                    <span class="btn-icon">▶</span>
+                    Run Code
+                </button>
+                <button id="clearBtn" class="btn btn-secondary">
+                    <span class="btn-icon">🗑</span>
+                    Clear
+                </button>
+                <button id="exampleBtn" class="btn btn-secondary">
+                    <span class="btn-icon">📝</span>
+                    Load Example
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="editor-section">
+                <div class="section-header">
+                    <h2>Code Editor</h2>
+                    <div class="editor-controls">
+                        <select id="fontSize" class="select">
+                            <option value="12">12px</option>
+                            <option value="14" selected>14px</option>
+                            <option value="16">16px</option>
+                            <option value="18">18px</option>
+                        </select>
+                        <button id="wrapBtn" class="btn btn-small">Wrap</button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <textarea id="codeEditor" placeholder="# Write your Python code here...
+print('Hello, Python in the browser!')
+
+# Try some examples:
+# import math
+# print(f'π = {math.pi}')
+
+# for i in range(5):
+#     print(f'Count: {i}')"></textarea>
+                    <div class="line-numbers" id="lineNumbers"></div>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div class="section-header">
+                    <h2>Output</h2>
+                    <div class="output-controls">
+                        <span id="statusIndicator" class="status-indicator">Ready</span>
+                        <button id="clearOutputBtn" class="btn btn-small">Clear Output</button>
+                    </div>
+                </div>
+                <div class="output-container">
+                    <pre id="output"></pre>
+                </div>
+            </div>
+        </main>
+
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p>Loading Python environment...</p>
+                <div class="loading-progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
